@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "generated.grpc.smartClimateService";
+option java_outer_classname = "SmartClimateServiceImpl";
+
+service ClimateService {
+    rpc SetTemperature(TemperatureRequest) returns (TemperatureResponse); // Simple RPC
+    rpc UploadTemperaturePreferences(stream TemperaturePreference) returns (PreferenceSummary); // Client Streaming
+}
+
+message TemperatureRequest {
+    float desired_temp = 1;
+    string room = 2;
+}
+
+message TemperatureResponse {
+    string status = 1; // e.g., "temperature set"
+}
+
+message TemperaturePreference {
+    float preferred_temp = 1;
+    string time_period = 2; // e.g., "morning", "evening"
+}
+
+message PreferenceSummary {
+    string message = 1;
+}

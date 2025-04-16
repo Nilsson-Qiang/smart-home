@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "generated.grpc.smartSecurityService";
+option java_outer_classname = "SmartSecurityServiceImpl";
+
+service SecurityService {
+    rpc LockDoor(DoorRequest) returns (DoorResponse); // Simple RPC
+    rpc StreamMotionAlerts(MotionRequest) returns (stream MotionAlert); // Server Streaming
+    rpc StreamCameraFeed(stream CameraFrame) returns (stream CameraAcknowledgement); // Bi-directional Streaming
+}
+
+message DoorRequest {
+    string door_id = 1;
+    bool lock = 2; // true = lock, false = unlock
+}
+
+message DoorResponse {
+    string status = 1; // e.g., "locked", "unlocked"
+}
+
+message MotionRequest {
+    string area_id = 1;
+}
+
+message MotionAlert {
+    string alert_message = 1;
+    string timestamp = 2;
+}
+
+message CameraFrame {
+    bytes image_data = 1;
+    string camera_id = 2;
+}
+
+message CameraAcknowledgement {
+    string status = 1;
+}
