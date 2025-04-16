@@ -12,7 +12,7 @@
     <groupId>com.smart</groupId>
     <artifactId>grpc-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>proto</name>
+    <name>grpc-service</name>
     <description>Grpc Service</description>
 
     <url/>
