@@ -5,7 +5,7 @@ option java_package = "generated.grpc.smartSecurityService";
 option java_outer_classname = "SmartSecurityServiceImpl";
 
 service SecurityService {
-    rpc LockDoor(DoorRequest) returns (DoorResponse); // Simple RPC
+
     rpc StreamMotionAlerts(MotionRequest) returns (stream MotionAlert); // Server Streaming
     rpc StreamCameraFeed(stream CameraFrame) returns (stream CameraAcknowledgement); // Bi-directional Streaming
 }

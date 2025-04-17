@@ -6,7 +6,7 @@ option java_outer_classname = "SmartLightServiceImpl";
 
 service LightingService {
     rpc ToggleLight(LightRequest) returns (LightResponse);
-    rpc SetSchedule(ScheduleRequest) returns (ScheduleResponse);
+
 }
 
 message LightRequest {
@@ -18,12 +18,3 @@ message LightResponse {
     string status = 1;
 }
 
-message ScheduleRequest {
-    string light_id = 1;
-    string time_on = 2;
-    string time_off = 3;
-}
-
-message ScheduleResponse {
-    string confirmation = 1;
-}
